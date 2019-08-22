@@ -1,0 +1,42 @@
+body {
+  background-color: #333;
+  color: white;
+}
+
+.input-group{
+  padding: 1em;
+}
+
+.readWordApp01{
+  padding: 1em;   
+}
+
+.breadcrumb {
+  font-size: 0.8em;
+  padding: 0px;
+  background-color: transparent;
+  margin-bottom: 2em;
+}
+
+.breadcrumb .active {
+  color: white;
+}
+
+.readWordApp01 p {
+  margin-bottom: 0em;
+}
+
+.readWordApp01 hr {
+  border-color: #aaa;
+  margin-top: 0px;
+  margin-bottom: 0.8em;
+}
+
+.badge {
+  font-size: 0.5em;
+  margin-right: 0.2em;
+}
+
+.wiki-doc-item{
+    margin-bottom: 2em;
+}
