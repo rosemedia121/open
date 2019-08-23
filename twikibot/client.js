@@ -26,7 +26,7 @@ var readWordApp01 = new Vue({
 
     },
     created() {
-      fetch('https://rose-beta-api.glitch.me/wiki/twiki')
+      fetch('https://rose-beta-api.glitch.me/api/v1/wiki/twiki')
       .then((response)=>{
         if(response.ok){
           return response.json();
