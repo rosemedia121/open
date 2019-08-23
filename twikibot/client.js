@@ -1,5 +1,4 @@
-var proxyUrl = 'https://rose-beta-view.glitch.me/',
-    targetUrl= 'https://rose-beta-api.glitch.me/wiki/twiki'
+const api_server_url= 'https://rose-beta-api.glitch.me/api/v1/wiki/twiki';
 
 var header = new Vue({
     el: '#headApp01'
@@ -26,7 +25,7 @@ var readWordApp01 = new Vue({
 
     },
     created() {
-      fetch('https://rose-beta-api.glitch.me/api/v1/wiki/twiki')
+      fetch(api_server_url)
       .then((response)=>{
         if(response.ok){
           return response.json();
