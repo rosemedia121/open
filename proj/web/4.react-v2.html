@@ -8,7 +8,7 @@
 
 <script type="text/babel">
 
-const menuitem= [
+const items= [
     {name:'아메리카노', price:1500}
     ,{name:'카페라떼', price:2500}
     ,{name:'바닐라라떼', price:3000}
@@ -19,9 +19,9 @@ const menuitem= [
     ,{name:'초코라떼', price:3000}
     ,{name:'헤이즐넛', price:2000}
 ]
-function Menuitem (props){
+function Item (props){
   return (
-    <div className= "menuitem col-sm-4" onClick={props.onClick}>
+    <div className= "item col-md-4" onClick={props.onClick}>
       <div>{(props.item.price/1000).toFixed(1)} | {props.item.name}</div>
     </div>
   );
@@ -35,8 +35,8 @@ class Menu extends React.Component{
             ,price:0
         }
     }
-    renderMenuitem(item){
-        return (<Menuitem key={item.name} item={item} onClick={()=> this.handleClick(item)}/>);
+    renderItem(item){
+        return (<Item key={item.name} item={item} onClick={()=> this.handleClick(item)}/>);
     }
     handleClick(item){
         const orders = this.state.orders.slice();
@@ -46,15 +46,15 @@ class Menu extends React.Component{
     render(){
         return (
             <div>
-                <h2>Menu</h2>
+                <h1 className="h2">Menu</h1>
                 <div className="row">
-                    {menuitem.map(e=>this.renderMenuitem(e))}
+                    {items.map(e=>this.renderItem(e))}
                 </div>
                 <hr></hr>
                 <div>
                     <h3>Items to order</h3>
                     <div className="mybagitems">
-                        {this.state.orders.map((e,i)=>{return (<div key={i}>{e.name}</div>)})}
+                        {this.state.orders.map((e,i)=>{return (<div key={i}>{e.name} | {e.price}</div>)})}
                     </div>
                     <h5>Total price : {this.state.price}</h5>
                 </div>

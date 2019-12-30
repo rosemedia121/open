@@ -1,0 +1,51 @@
+<script src="https://unpkg.com/react@15/dist/react.js"></script>
+<script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+var itemlist = [
+  {name:'아메리카노',amount:11}
+  ,{name:'카페라떼',amount:7}
+  ,{name:'콜드브루', amount:9}
+];
+
+class Coffee extends React.Component{
+    constructor(props){
+      super(props);
+      this.state = {
+        amount: props.amount,
+      }
+    }
+    render(){
+        return(
+            <div>
+                <p>{this.props.name} : {this.state.amount}</p>
+                <button className="btnPlus" onClick={()=>{this.setState({amount:this.state.amount+1})}}>+</button>
+                <button className="btnMinus" onClick={()=>{this.setState({amount:this.state.amount-1})}}>-</button>
+                <button className="btnPrint" onClick={()=>{console.log(`${this.props.name} : ${this.state.amount}`)}}>print</button>
+            </div>
+        )
+    }
+}
+
+class App extends React.Component{
+    render(){
+        return (
+            <div className="App">
+                <div>
+                    <p>{this.props.title}</p>
+                </div>
+                {itemlist.map((e,i)=>{return (<Coffee key={i} name={e.name} amount={e.amount}/>)})}
+            </div>
+            
+        );
+    }
+}
+ReactDOM.render(
+    <App title="My Table" />,
+    document.getElementById('root')
+);
+</script>
