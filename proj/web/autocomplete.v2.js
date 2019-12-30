@@ -18,7 +18,7 @@
         }
     });
     function f(word){
-        return dict.find(word.toEngKey());
+        return dict.find(word.toEngKey().replace(':','').toLowerCase());
     }
     /* 클릭 이벤트 */
     document.querySelector('#out01').addEventListener("click",e=>{
@@ -34,14 +34,14 @@
         find:function (word){
             let result = []
             for(var key in this.words){
-                if (RegExp('^'+word).test(key.toEngKey())){
+                if (RegExp('^'+word).test(key.toEngKey().replace(':','').toLowerCase())){
                     result.push({name: key,view:this.words[key]});
                 }
             }
             return result.sort((a,b)=>b.view-a.view).filter((e,i)=>i<5);
         }
     };
-    fetch('https://rosemedia121.github.io/proj/web/resource/mydict.json').then(res=>res.json()).then(jsn=>{dict.words=jsn.words.sort((a,b)=>b.view-a.view)})
+    fetch('https://rosemedia121.github.io/proj/web/resource/mydict.json').then(res=>res.json()).then(jsn=>{dict.words=jsn.words})
     var speller = {};
     speller.train = function (text) {
       var m;
